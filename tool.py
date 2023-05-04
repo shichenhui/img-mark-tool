@@ -178,9 +178,16 @@ for type_name in type_lists:
     checkbotton_dict[type_name] = checkbotton
     checkbotton.pack(anchor="w")
 
+def next_image_self(self):
+    next_image()
+def pre_image_self(self):
+    pre_image()
 btn_before = tkinter.Button(panedwindow, text='上一张', command=lambda: pre_image(), width=5, height=1)
 btn_after = tkinter.Button(panedwindow, text='下一张', command=lambda: next_image(), width=5, height=1)
 save_after = tkinter.Button(panedwindow, text='保存并退出', command=lambda: save_images(), width=8, height=1)
+root.bind('<KeyPress-Right>', next_image_self)
+root.bind('<KeyPress-Left>', pre_image_self)
+
 
 btn_before.place(x=240, y=470, anchor='w')
 btn_after.place(x=340, y=470, anchor='w')
